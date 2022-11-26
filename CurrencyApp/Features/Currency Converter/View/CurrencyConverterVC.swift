@@ -125,6 +125,6 @@ extension CurrencyConverterVC {
     func subscribeToShowHistoricalData() {
         detailsBtn.rx.tap
         .throttle(RxTimeInterval.milliseconds(300), scheduler: MainScheduler.instance)
-        .bind(to: self.viewModel.input.didSwapCurrencies).disposed(by: disposeBag)
+        .bind(to: self.viewModel.input.didTapDetails).disposed(by: disposeBag)
     }
 }

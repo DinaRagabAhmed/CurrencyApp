@@ -60,7 +60,17 @@ extension CurrencyConverterCoordinator {
     }
     
     func redirectToHistoricalDetails() {
-        
+        let historicalListCoordinator = HistoricalListCoordinator(router: router)
+        self.add(coordinator: historicalListCoordinator)
+         
+        historicalListCoordinator.isCompleted = { [weak self, weak historicalListCoordinator] in
+             guard let coordinator = historicalListCoordinator else {
+                 return
+             }
+             self?.remove(coordinator: coordinator)
+         }
+         
+        historicalListCoordinator.start()
     }
 }
 

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CurrencyCell: UITableViewCell {
+class CurrencyCell: DisposableTableViewCell {
 
     @IBOutlet weak var currencyLabel: UILabel!
     

@@ -58,6 +58,10 @@
 		A7DA4C4329327D8400743651 /* HistoricalListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DA4C4229327D8400743651 /* HistoricalListViewModel.swift */; };
 		A7DA4C4629327D9C00743651 /* HistoricalListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DA4C4429327D9C00743651 /* HistoricalListVC.swift */; };
 		A7DA4C4729327D9C00743651 /* HistoricalListVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = A7DA4C4529327D9C00743651 /* HistoricalListVC.xib */; };
+		A7DA4C492932890F00743651 /* Array+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DA4C482932890F00743651 /* Array+extensions.swift */; };
+		A7DA4C4D29328CEF00743651 /* HistoryDataCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DA4C4B29328CEF00743651 /* HistoryDataCell.swift */; };
+		A7DA4C4E29328CEF00743651 /* HistoryDataCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A7DA4C4C29328CEF00743651 /* HistoryDataCell.xib */; };
+		A7DA4C5029328D7300743651 /* DisposableTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DA4C4F29328D7300743651 /* DisposableTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -116,6 +120,10 @@
 		A7DA4C4229327D8400743651 /* HistoricalListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoricalListViewModel.swift; sourceTree = "<group>"; };
 		A7DA4C4429327D9C00743651 /* HistoricalListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoricalListVC.swift; sourceTree = "<group>"; };
 		A7DA4C4529327D9C00743651 /* HistoricalListVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HistoricalListVC.xib; sourceTree = "<group>"; };
+		A7DA4C482932890F00743651 /* Array+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+extensions.swift"; sourceTree = "<group>"; };
+		A7DA4C4B29328CEF00743651 /* HistoryDataCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryDataCell.swift; sourceTree = "<group>"; };
+		A7DA4C4C29328CEF00743651 /* HistoryDataCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HistoryDataCell.xib; sourceTree = "<group>"; };
+		A7DA4C4F29328D7300743651 /* DisposableTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisposableTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -248,6 +256,7 @@
 				A736FE312931716C00E021B5 /* FittedSheetCustomization.swift */,
 				A7DA4C36293257FD00743651 /* UserDefault.swift */,
 				A7DA4C3A29327C0200743651 /* DateFormatter.swift */,
+				A7DA4C4F29328D7300743651 /* DisposableTableViewCell.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -259,6 +268,7 @@
 				A736FE1B293156A700E021B5 /* UIView+extensions.swift */,
 				A736FE3A293174AB00E021B5 /* UITableView+extensions.swift */,
 				A77A77D42932479200B22A53 /* Double+extensions.swift */,
+				A7DA4C482932890F00743651 /* Array+extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -449,10 +459,20 @@
 		A7DA4C3F29327D5F00743651 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				A7DA4C4A29328CD700743651 /* Cells */,
 				A7DA4C4429327D9C00743651 /* HistoricalListVC.swift */,
 				A7DA4C4529327D9C00743651 /* HistoricalListVC.xib */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		A7DA4C4A29328CD700743651 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				A7DA4C4B29328CEF00743651 /* HistoryDataCell.swift */,
+				A7DA4C4C29328CEF00743651 /* HistoryDataCell.xib */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -515,6 +535,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A7DA4C4E29328CEF00743651 /* HistoryDataCell.xib in Resources */,
 				A736FE4329322E6E00E021B5 /* NoNetworkView.xib in Resources */,
 				A736FE2E29316CC900E021B5 /* CurrenciesListVC.xib in Resources */,
 				A736FDCB2931421A00E021B5 /* LaunchScreen.storyboard in Resources */,
@@ -584,6 +605,7 @@
 				A7DA4C4629327D9C00743651 /* HistoricalListVC.swift in Sources */,
 				A736FE322931716C00E021B5 /* FittedSheetCustomization.swift in Sources */,
 				A736FDDF293143ED00E021B5 /* BaseViewModel.swift in Sources */,
+				A7DA4C492932890F00743651 /* Array+extensions.swift in Sources */,
 				A736FDFA293146EA00E021B5 /* String+extensions.swift in Sources */,
 				A736FE1329314EF000E021B5 /* CurrencyConverterVC.swift in Sources */,
 				A736FE2829316C7700E021B5 /* CurrenciesListViewModel.swift in Sources */,
@@ -602,6 +624,7 @@
 				A736FDE62931449E00E021B5 /* AppCoordinator.swift in Sources */,
 				A736FE092931495000E021B5 /* DataManager.swift in Sources */,
 				A736FE20293159B000E021B5 /* SymbolsResponse.swift in Sources */,
+				A7DA4C5029328D7300743651 /* DisposableTableViewCell.swift in Sources */,
 				A736FE3B293174AB00E021B5 /* UITableView+extensions.swift in Sources */,
 				A736FE1629314F0300E021B5 /* CurrencyCoverterViewModel.swift in Sources */,
 				A77A77D52932479200B22A53 /* Double+extensions.swift in Sources */,
@@ -614,6 +637,7 @@
 				A736FE03293148FF00E021B5 /* NetworkManager.swift in Sources */,
 				A736FE052931491900E021B5 /* NetworkManager+extensions.swift in Sources */,
 				A736FDE92931455A00E021B5 /* Drawable.swift in Sources */,
+				A7DA4C4D29328CEF00743651 /* HistoryDataCell.swift in Sources */,
 				A736FDBF2931421700E021B5 /* AppDelegate.swift in Sources */,
 				A736FE1C293156A700E021B5 /* UIView+extensions.swift in Sources */,
 				A736FDDD293143D500E021B5 /* BaseVC.swift in Sources */,
@@ -766,7 +790,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 2C86JD592M;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "CurrencyApp/Supporting files/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -794,7 +818,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 2C86JD592M;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "CurrencyApp/Supporting files/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

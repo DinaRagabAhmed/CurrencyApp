@@ -12,5 +12,6 @@ target 'CurrencyApp' do
   pod "RxGesture"
   pod 'IQKeyboardManagerSwift'
   pod 'FittedSheets'
+  pod 'RxDataSources'
 
 end
