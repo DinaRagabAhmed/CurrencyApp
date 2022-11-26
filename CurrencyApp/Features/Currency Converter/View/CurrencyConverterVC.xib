@@ -11,9 +11,13 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CurrencyConverterVC">
             <connections>
+                <outlet property="amountTextField" destination="jjH-pA-N8Y" id="r3Q-E4-SQu"/>
+                <outlet property="conversionResultLabel" destination="Fz6-TX-DPK" id="TxA-3y-wg7"/>
                 <outlet property="fromCurrencyLabel" destination="Wnq-ZL-Iew" id="z2T-X0-JRO"/>
                 <outlet property="fromCurrencyView" destination="dfl-66-Mff" id="Tia-mr-Tch"/>
+                <outlet property="noNetworkView" destination="4vd-oi-kjX" id="Ft7-F6-Bx0"/>
                 <outlet property="scrollView" destination="lfD-nL-KMy" id="yTH-PS-Bbd"/>
+                <outlet property="swapCurrenciesButton" destination="chM-xl-5f7" id="wys-KX-lZB"/>
                 <outlet property="toCurrencyLabel" destination="jQB-lF-qAJ" id="xTH-Wx-gMG"/>
                 <outlet property="toCurrencyView" destination="raL-nJ-z1O" id="CEr-EF-MZS"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -24,6 +28,10 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4vd-oi-kjX" customClass="NoNetworkView" customModule="CurrencyApp" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                </view>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lfD-nL-KMy">
                     <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                     <subviews>
@@ -88,7 +96,7 @@
                                         <imageReference key="image" image="repeat" catalog="system" symbolScale="large"/>
                                     </state>
                                 </button>
-                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="1.0" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jjH-pA-N8Y">
+                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1.0" borderStyle="roundedRect" placeholder="1.0" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jjH-pA-N8Y">
                                     <rect key="frame" x="20" y="230.5" width="145" height="40"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="40" id="iKh-2J-JPL"/>
@@ -154,10 +162,14 @@
             <constraints>
                 <constraint firstItem="oFT-3R-Cks" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" priority="250" id="8sT-aJ-8Up"/>
                 <constraint firstItem="lfD-nL-KMy" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="9PB-gi-pEt"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="4vd-oi-kjX" secondAttribute="bottom" id="BDy-D7-UdX"/>
+                <constraint firstItem="4vd-oi-kjX" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="DCj-yr-Jzc"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="lfD-nL-KMy" secondAttribute="trailing" id="DS5-8q-ccH"/>
                 <constraint firstItem="lfD-nL-KMy" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="GOE-te-OP3"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="4vd-oi-kjX" secondAttribute="trailing" id="cnj-lD-2fF"/>
                 <constraint firstItem="oFT-3R-Cks" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="jbN-bn-Rny"/>
                 <constraint firstAttribute="bottom" secondItem="lfD-nL-KMy" secondAttribute="bottom" id="vus-ls-cdq"/>
+                <constraint firstItem="4vd-oi-kjX" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="yp0-Dh-0nC"/>
             </constraints>
             <point key="canvasLocation" x="137.68115942028987" y="95.758928571428569"/>
         </view>

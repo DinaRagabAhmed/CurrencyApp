@@ -47,6 +47,13 @@
 		A736FE392931741900E021B5 /* CurrencyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A736FE372931741900E021B5 /* CurrencyCell.xib */; };
 		A736FE3B293174AB00E021B5 /* UITableView+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A736FE3A293174AB00E021B5 /* UITableView+extensions.swift */; };
 		A736FE3D2931803A00E021B5 /* ConversionResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A736FE3C2931803A00E021B5 /* ConversionResponse.swift */; };
+		A736FE4129322DCF00E021B5 /* NoNetworkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A736FE4029322DCF00E021B5 /* NoNetworkView.swift */; };
+		A736FE4329322E6E00E021B5 /* NoNetworkView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A736FE4229322E6E00E021B5 /* NoNetworkView.xib */; };
+		A736FE45293231C000E021B5 /* ScreenState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A736FE44293231C000E021B5 /* ScreenState.swift */; };
+		A77A77D52932479200B22A53 /* Double+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77A77D42932479200B22A53 /* Double+extensions.swift */; };
+		A7DA4C37293257FD00743651 /* UserDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DA4C36293257FD00743651 /* UserDefault.swift */; };
+		A7DA4C392932592300743651 /* HistoricalExchangeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DA4C382932592300743651 /* HistoricalExchangeData.swift */; };
+		A7DA4C3B29327C0200743651 /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DA4C3A29327C0200743651 /* DateFormatter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -94,6 +101,13 @@
 		A736FE372931741900E021B5 /* CurrencyCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CurrencyCell.xib; sourceTree = "<group>"; };
 		A736FE3A293174AB00E021B5 /* UITableView+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+extensions.swift"; sourceTree = "<group>"; };
 		A736FE3C2931803A00E021B5 /* ConversionResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversionResponse.swift; sourceTree = "<group>"; };
+		A736FE4029322DCF00E021B5 /* NoNetworkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoNetworkView.swift; sourceTree = "<group>"; };
+		A736FE4229322E6E00E021B5 /* NoNetworkView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NoNetworkView.xib; sourceTree = "<group>"; };
+		A736FE44293231C000E021B5 /* ScreenState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScreenState.swift; sourceTree = "<group>"; };
+		A77A77D42932479200B22A53 /* Double+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+extensions.swift"; sourceTree = "<group>"; };
+		A7DA4C36293257FD00743651 /* UserDefault.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefault.swift; sourceTree = "<group>"; };
+		A7DA4C382932592300743651 /* HistoricalExchangeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoricalExchangeData.swift; sourceTree = "<group>"; };
+		A7DA4C3A29327C0200743651 /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,6 +170,7 @@
 				A736FDE7293144D100E021B5 /* Router */,
 				A736FDEE293145AC00E021B5 /* Supporting Files */,
 				A736FDF02931464F00E021B5 /* Utilities */,
+				A736FE3E29322D9700E021B5 /* Views */,
 			);
 			path = CurrencyApp;
 			sourceTree = "<group>";
@@ -223,6 +238,8 @@
 				A736FDF12931466100E021B5 /* ViewModelProtocol.swift */,
 				A736FE0A2931498900E021B5 /* Utils.swift */,
 				A736FE312931716C00E021B5 /* FittedSheetCustomization.swift */,
+				A7DA4C36293257FD00743651 /* UserDefault.swift */,
+				A7DA4C3A29327C0200743651 /* DateFormatter.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -233,6 +250,7 @@
 				A736FDF9293146EA00E021B5 /* String+extensions.swift */,
 				A736FE1B293156A700E021B5 /* UIView+extensions.swift */,
 				A736FE3A293174AB00E021B5 /* UITableView+extensions.swift */,
+				A77A77D42932479200B22A53 /* Double+extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -251,9 +269,11 @@
 		A736FDFC2931471200E021B5 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				A736FE44293231C000E021B5 /* ScreenState.swift */,
 				A736FE1F293159B000E021B5 /* SymbolsResponse.swift */,
 				A736FE212931609900E021B5 /* Currency.swift */,
 				A736FE3C2931803A00E021B5 /* ConversionResponse.swift */,
+				A7DA4C382932592300743651 /* HistoricalExchangeData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -374,6 +394,23 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
+		A736FE3E29322D9700E021B5 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A736FE3F29322DA300E021B5 /* No Network View */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		A736FE3F29322DA300E021B5 /* No Network View */ = {
+			isa = PBXGroup;
+			children = (
+				A736FE4229322E6E00E021B5 /* NoNetworkView.xib */,
+				A736FE4029322DCF00E021B5 /* NoNetworkView.swift */,
+			);
+			path = "No Network View";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -434,6 +471,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A736FE4329322E6E00E021B5 /* NoNetworkView.xib in Resources */,
 				A736FE2E29316CC900E021B5 /* CurrenciesListVC.xib in Resources */,
 				A736FDCB2931421A00E021B5 /* LaunchScreen.storyboard in Resources */,
 				A736FE1429314EF000E021B5 /* CurrencyConverterVC.xib in Resources */,
@@ -492,6 +530,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A7DA4C37293257FD00743651 /* UserDefault.swift in Sources */,
 				A736FDED2931459500E021B5 /* Router.swift in Sources */,
 				A736FE01293148E100E021B5 /* ErrorTypes.swift in Sources */,
 				A736FDEB2931456C00E021B5 /* Routing.swift in Sources */,
@@ -502,21 +541,26 @@
 				A736FDFA293146EA00E021B5 /* String+extensions.swift in Sources */,
 				A736FE1329314EF000E021B5 /* CurrencyConverterVC.swift in Sources */,
 				A736FE2829316C7700E021B5 /* CurrenciesListViewModel.swift in Sources */,
+				A736FE45293231C000E021B5 /* ScreenState.swift in Sources */,
 				A736FE3D2931803A00E021B5 /* ConversionResponse.swift in Sources */,
 				A736FE222931609900E021B5 /* Currency.swift in Sources */,
+				A7DA4C392932592300743651 /* HistoricalExchangeData.swift in Sources */,
 				A736FE1E2931588900E021B5 /* CurrencyServices.swift in Sources */,
 				A736FE3029316CF700E021B5 /* CurrenciesListCoordinator.swift in Sources */,
 				A736FE072931493600E021B5 /* DataSource.swift in Sources */,
 				A736FDE22931444000E021B5 /* Coordinator.swift in Sources */,
+				A736FE4129322DCF00E021B5 /* NoNetworkView.swift in Sources */,
 				A736FE382931741900E021B5 /* CurrencyCell.swift in Sources */,
 				A736FDE62931449E00E021B5 /* AppCoordinator.swift in Sources */,
 				A736FE092931495000E021B5 /* DataManager.swift in Sources */,
 				A736FE20293159B000E021B5 /* SymbolsResponse.swift in Sources */,
 				A736FE3B293174AB00E021B5 /* UITableView+extensions.swift in Sources */,
 				A736FE1629314F0300E021B5 /* CurrencyCoverterViewModel.swift in Sources */,
+				A77A77D52932479200B22A53 /* Double+extensions.swift in Sources */,
 				A736FDE42931447700E021B5 /* BaseCoordinator.swift in Sources */,
 				A736FE1A29314FFC00E021B5 /* AppDelegate+extensions.swift in Sources */,
 				A736FE0B2931498900E021B5 /* Utils.swift in Sources */,
+				A7DA4C3B29327C0200743651 /* DateFormatter.swift in Sources */,
 				A736FDF22931466100E021B5 /* ViewModelProtocol.swift in Sources */,
 				A736FE2D29316CC900E021B5 /* CurrenciesListVC.swift in Sources */,
 				A736FE03293148FF00E021B5 /* NetworkManager.swift in Sources */,
@@ -674,6 +718,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "CurrencyApp/Supporting files/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -701,6 +746,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "CurrencyApp/Supporting files/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

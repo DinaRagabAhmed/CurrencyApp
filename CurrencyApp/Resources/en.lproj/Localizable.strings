@@ -5,3 +5,6 @@
   Created by Dina Ragab on 25/11/2022.
   
 */
+
+"networkError" = "No Internet Connection";
+"reload" = "Reload";
