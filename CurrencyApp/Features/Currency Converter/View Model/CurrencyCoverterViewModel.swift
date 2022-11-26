@@ -233,7 +233,7 @@ extension CurrencyCoverterViewModel {
     }
     
     func saveHistoricalData(date: String) {
-        let historicalData = HistoricalExchangeData(date: date,
+        let historicalData = HistoricalExchangeData(date: "2022-11-29",
                                                     fromCurrency: self.fromCurrencySubject.value?.symbol ?? "",
                                                     toCurrency: self.toCurrencySubject.value?.symbol ?? "",
                                                     rate: self.rateSubject.value ?? 0)

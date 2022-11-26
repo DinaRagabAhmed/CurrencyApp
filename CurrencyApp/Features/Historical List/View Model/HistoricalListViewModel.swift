@@ -10,6 +10,7 @@ import RxSwift
 import RxCocoa
 import RxDataSources
 
+
 class HistoricalListViewModel: BaseViewModel {
 
     struct Input {
@@ -23,6 +24,7 @@ class HistoricalListViewModel: BaseViewModel {
     let input: Input
     
     private let dataSubject: BehaviorRelay<[SectionModel<String, HistoricalExchangeData>]> = BehaviorRelay(value: [])
+    var dateManager = DateManager()
 
 
     override init() {
@@ -34,24 +36,23 @@ class HistoricalListViewModel: BaseViewModel {
     }
     
     func setupData() {
-        var historicalData = UserDefault().getHistoricalData()
+        let historicalData = UserDefault().getHistoricalData()
         var historicalDataDictionary = [String: [HistoricalExchangeData]]()
         for item in historicalData {
             if let searchHistoryofDate = historicalDataDictionary[item.date] {
                 var data = searchHistoryofDate
                 data.append(item)
                 historicalDataDictionary[item.date] = data
-
             } else {
                 historicalDataDictionary[item.date] = [item]
             }
         }
         
-        var sectionModels = historicalDataDictionary.map { (key, value) in
+        let sectionModels = historicalDataDictionary.map { (key, value) in
             return SectionModel(model: key, items: value)
         }
-        
-        dataSubject.accept(sectionModels)
+                
+        dataSubject.accept(sectionModels.sorted { (dateManager.convertDateToStringWithFormat(dateString: $0.model) ?? Date()) < (dateManager.convertDateToStringWithFormat(dateString: $1.model) ?? Date()) })
     }
     
 }
