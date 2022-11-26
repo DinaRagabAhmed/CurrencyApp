@@ -21,7 +21,7 @@ class CurrencyConverterVC: BaseVC {
     @IBOutlet weak var fromCurrencyLabel: UILabel!
     @IBOutlet weak var toCurrencyView: UIView!
     @IBOutlet weak var fromCurrencyView: UIView!
-    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var contentView: UIView!
     
     // MARK: - Properties
     var viewModel: CurrencyCoverterViewModel!
@@ -34,7 +34,6 @@ class CurrencyConverterVC: BaseVC {
     }
     
     func setUI() {
-        self.scrollView.contentInsetAdjustmentBehavior = .never
         self.title = "currency_converter".localized()
         self.detailsBtn.setTitle("details".localized(), for: .selected)
         self.detailsBtn.setTitle("details".localized(), for: .normal)
@@ -114,10 +113,10 @@ extension CurrencyConverterVC {
                 guard let self = self else { return }
                 switch screenStatus {
                 case .dataLoaded:
-                    self.scrollView.isHidden = false
+                    self.contentView.isHidden = false
                     self.noNetworkView.isHidden = true
                 case .noNetwork:
-                    self.scrollView.isHidden = true
+                    self.contentView.isHidden = true
                     self.noNetworkView.isHidden = false
                 }
             }).disposed(by: disposeBag)
