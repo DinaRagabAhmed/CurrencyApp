@@ -7,4 +7,12 @@
 */
 
 "networkError" = "No Internet Connection";
-"reload" = "Reload";
+"retry" = "Reload";
+"currency_converter" = "Currency Converter";
+"details" = "Details";
+"max_amount_error" = "Max Amount is";
+"historical_data" = "Historical Data";
+"conversion_from" = "Conversion from";
+"to" = "to";
+"with_rate" = "With Rate";
+"generalError" = "Something went wrong, please try again later";

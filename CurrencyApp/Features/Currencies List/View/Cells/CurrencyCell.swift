@@ -16,6 +16,6 @@ class CurrencyCell: DisposableTableViewCell {
     }
 
     func setData(currency: Currency) {
-        self.currencyLabel.text = currency.currencyFullName
+        self.currencyLabel.text = "\(currency.symbol) - \(currency.currencyFullName)"
     }
 }

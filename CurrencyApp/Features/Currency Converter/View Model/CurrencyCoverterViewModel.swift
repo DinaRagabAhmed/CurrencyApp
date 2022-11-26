@@ -79,7 +79,7 @@ extension CurrencyCoverterViewModel {
     
     func subscribeToAmountChanges() {
         Observable.combineLatest(amountSubject.asObservable(), rateSubject.asObservable()).subscribe { [weak self] (amount, rate) in
-            self?.calculateResult(amount: Double(amount) ?? 1, rate: rate ?? 0)
+            self?.calculateResult(amount: Double(amount.replacedArabicDigitsWithEnglish) ?? 1, rate: rate ?? 0)
         }.disposed(by: disposeBag)
     }
     
@@ -233,7 +233,7 @@ extension CurrencyCoverterViewModel {
     }
     
     func saveHistoricalData(date: String) {
-        let historicalData = HistoricalExchangeData(date: "2022-11-29",
+        let historicalData = HistoricalExchangeData(date: "2022-11-26",
                                                     fromCurrency: self.fromCurrencySubject.value?.symbol ?? "",
                                                     toCurrency: self.toCurrencySubject.value?.symbol ?? "",
                                                     rate: self.rateSubject.value ?? 0)

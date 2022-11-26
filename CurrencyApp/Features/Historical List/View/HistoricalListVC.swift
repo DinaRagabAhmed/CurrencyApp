@@ -14,10 +14,14 @@ class HistoricalListVC: BaseVC {
     // MARK: - Properties
     var viewModel: HistoricalListViewModel!
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
+        setUI()
         setupTableView()
+    }
+    
+    func setUI() {
+        self.title = "historical_data".localized()
     }
     
     func setupTableView() {
@@ -62,5 +66,4 @@ class HistoricalListVC: BaseVC {
         cell?.setData(data: element)
         return cell ?? DisposableTableViewCell()
     }
-
 }

@@ -16,7 +16,7 @@ class HistoryDataCell: DisposableTableViewCell {
     }
 
     func setData(data: HistoricalExchangeData) {
-        dataLabel.text = "Conversion from \(data.fromCurrency) to \(data.toCurrency) with rate \(data.rate.round(to: 2))"
+        dataLabel.text = "\("conversion_from".localized()) \(data.fromCurrency) \("to".localized()) \(data.toCurrency) \("with_rate".localized()) \(data.rate.round(to: 2))"
     }
     
 }

@@ -54,7 +54,7 @@ extension CurrencyServices: TargetType {
     
     // These are the headers that our service requires.
     var headers: [String: String]? {
-        return ["accept": "application/json", "apikey": "5a0uFxZxH3PnW8HWBvuTP2Z0RsMXoi6c"]
+        return ["accept": "application/json", "apikey": "X4rOazcLfz2j1wMlWwQ6EsNNhqMkd4Or"]
     }
     
     // This is sample return data that you can use to mock and test your services,

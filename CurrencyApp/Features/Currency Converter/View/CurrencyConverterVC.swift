@@ -11,6 +11,7 @@ import RxGesture
 
 class CurrencyConverterVC: BaseVC {
 
+    @IBOutlet weak var maxAmountErrorLabel: UILabel!
     @IBOutlet weak var detailsBtn: UIButton!
     @IBOutlet weak var swapCurrenciesButton: UIButton!
     @IBOutlet weak var noNetworkView: NoNetworkView!
@@ -33,7 +34,11 @@ class CurrencyConverterVC: BaseVC {
     }
     
     func setUI() {
-        scrollView.contentInsetAdjustmentBehavior = .never
+        self.scrollView.contentInsetAdjustmentBehavior = .never
+        self.title = "currency_converter".localized()
+        self.detailsBtn.setTitle("details".localized(), for: .selected)
+        self.detailsBtn.setTitle("details".localized(), for: .normal)
+        self.maxAmountErrorLabel.text = "max_amount_error".localized()
     }
     
     //Binding
@@ -76,7 +81,21 @@ extension CurrencyConverterVC {
     }
     
     func bindAmountTextField() {
-        amountTextField.rx.text.orEmpty.bind(to: self.viewModel.input.amount).disposed(by: disposeBag)
+        amountTextField.rx.text.orEmpty
+        .scan("") { [weak self] (previous, new) -> String in
+            if (Double(new.replacedArabicDigitsWithEnglish) ?? 0) > Constants.maxAmount.rawValue {
+                self?.maxAmountErrorLabel.isHidden = false
+                return previous ?? "0"
+            } else {
+                self?.maxAmountErrorLabel.isHidden = true
+                return new
+            }
+        }
+        .subscribe(amountTextField.rx.text)
+        .disposed(by: disposeBag)
+        
+        amountTextField.rx.text.orEmpty
+            .bind(to: self.viewModel.input.amount).disposed(by: disposeBag)
     }
     
     func bindCurrencyConversionResult() {
@@ -127,4 +146,8 @@ extension CurrencyConverterVC {
         .throttle(RxTimeInterval.milliseconds(300), scheduler: MainScheduler.instance)
         .bind(to: self.viewModel.input.didTapDetails).disposed(by: disposeBag)
     }
+}
+
+private enum Constants: Double {
+    case maxAmount = 1000_000_0
 }

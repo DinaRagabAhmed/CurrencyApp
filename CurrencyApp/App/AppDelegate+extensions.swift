@@ -26,4 +26,19 @@ extension AppDelegate {
         IQKeyboardManager.shared.shouldResignOnTouchOutside = true
         IQKeyboardManager.shared.enableAutoToolbar = false
     }
+    
+    //Check search history if more than 3 days, remove
+    func checkSearchHistory() {
+        let savedSearchHistory = UserDefault().getHistoricalData()
+        var searchHistory = savedSearchHistory
+        for searchHistoryItem in savedSearchHistory {
+            let threeDaysBeforeToday = Calendar.current.date(byAdding: .day, value: -3, to: Date()) ?? Date()
+            let searchDate = DateManager().getDate(dateString: searchHistoryItem.key) ?? Date()
+            if searchDate < threeDaysBeforeToday {
+                searchHistory[searchHistoryItem.key] = nil
+            }
+        }
+        
+        UserDefault().setHistoricalData(data: searchHistory)
+    }
 }

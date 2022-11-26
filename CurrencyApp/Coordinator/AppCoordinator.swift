@@ -14,7 +14,10 @@ class AppCoordinator: BaseCoordinator<Void> {
     private var router: Routing?
     private var navigationController: UINavigationController = {
         let navigationController = UINavigationController()
-        navigationController.navigationBar.isHidden = true
+        navigationController.navigationBar.isHidden = false
+        navigationController.navigationBar.backgroundColor = .systemTeal
+        navigationController.navigationBar.tintColor = .white
+        navigationController.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
         return navigationController
     }()
 

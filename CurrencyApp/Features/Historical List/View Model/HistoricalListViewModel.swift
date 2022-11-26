@@ -37,22 +37,11 @@ class HistoricalListViewModel: BaseViewModel {
     
     func setupData() {
         let historicalData = UserDefault().getHistoricalData()
-        var historicalDataDictionary = [String: [HistoricalExchangeData]]()
-        for item in historicalData {
-            if let searchHistoryofDate = historicalDataDictionary[item.date] {
-                var data = searchHistoryofDate
-                data.append(item)
-                historicalDataDictionary[item.date] = data
-            } else {
-                historicalDataDictionary[item.date] = [item]
-            }
-        }
-        
-        let sectionModels = historicalDataDictionary.map { (key, value) in
+        let sectionModels = historicalData.map { (key, value) in
             return SectionModel(model: key, items: value)
         }
-                
-        dataSubject.accept(sectionModels.sorted { (dateManager.convertDateToStringWithFormat(dateString: $0.model) ?? Date()) < (dateManager.convertDateToStringWithFormat(dateString: $1.model) ?? Date()) })
+
+        dataSubject.accept(sectionModels.sorted { (dateManager.getDate(dateString: $0.model) ?? Date()) < (dateManager.getDate(dateString: $1.model) ?? Date()) })
     }
     
 }

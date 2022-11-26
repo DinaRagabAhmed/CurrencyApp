@@ -9,7 +9,7 @@ import Foundation
 
 class DateManager {
     
-    func convertDateToStringWithFormat(dateString: String) -> Date? {
+    func getDate(dateString: String) -> Date? {
         let dateFormatter = DateFormatter()
         dateFormatter.locale = NSLocale(localeIdentifier: "en_US_POSIX") as Locale?
         dateFormatter.timeZone = TimeZone.current
