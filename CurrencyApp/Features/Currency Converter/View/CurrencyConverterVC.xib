@@ -185,7 +185,7 @@
                 </scrollView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <color key="backgroundColor" systemColor="systemTealColor"/>
             <constraints>
                 <constraint firstItem="oFT-3R-Cks" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" priority="250" id="8sT-aJ-8Up"/>
                 <constraint firstItem="lfD-nL-KMy" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="9PB-gi-pEt"/>

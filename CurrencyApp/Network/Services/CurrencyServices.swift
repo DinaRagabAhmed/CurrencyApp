@@ -17,7 +17,7 @@ extension CurrencyServices: TargetType {
     
     // This is the base URL we'll be using, typically our server.
     var baseURL: URL {
-        let baseURL = "https://api.apilayer.com/fixer/"
+        let baseURL = Environment.baseURL
         guard let url = URL(string: baseURL) else { fatalError("wrong baseURL in Route") }
         return url
     }
@@ -54,7 +54,7 @@ extension CurrencyServices: TargetType {
     
     // These are the headers that our service requires.
     var headers: [String: String]? {
-        return ["accept": "application/json", "apikey": "X4rOazcLfz2j1wMlWwQ6EsNNhqMkd4Or"]
+        return ["accept": "application/json", "apikey": Environment.APIKey]
     }
     
     // This is sample return data that you can use to mock and test your services,

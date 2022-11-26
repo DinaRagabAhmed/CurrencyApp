@@ -25,22 +25,8 @@ class HistoricalListCoordinator: BaseCoordinator<Void> {
         
         router.push(viewController, isAnimated: true, onNavigateBack: isCompleted)
         
-       // bindToScreenNavigation(viewModel: viewModel)
         return Observable.never()
     }
-    
-    // Binding
-//    func bindToScreenNavigation(viewModel: NotificationsListViewModel) {
-//        viewModel.output.screenRedirectionObservable
-//            .subscribe(onNext: { [weak self](redirection) in
-//                guard let self = self else { return }
-//                switch redirection {
-//                case .back:
-//                    self.router.pop(true)
-//                }
-//            })
-//            .disposed(by: bag)
-//    }
 }
 
 enum HistoricalListRedirection {

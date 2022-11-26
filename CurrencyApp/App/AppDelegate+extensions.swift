@@ -31,6 +31,7 @@ extension AppDelegate {
     func checkSearchHistory() {
         let savedSearchHistory = UserDefault().getHistoricalData()
         var searchHistory = savedSearchHistory
+        // Check if search history is before 3 days, remove it
         for searchHistoryItem in savedSearchHistory {
             let threeDaysBeforeToday = Calendar.current.date(byAdding: .day, value: -3, to: Date()) ?? Date()
             let searchDate = DateManager().getDate(dateString: searchHistoryItem.key) ?? Date()

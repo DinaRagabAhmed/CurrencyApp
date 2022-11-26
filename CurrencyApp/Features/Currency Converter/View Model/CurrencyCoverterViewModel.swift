@@ -119,6 +119,62 @@ extension CurrencyCoverterViewModel {
         self.controlLoading(showLoading: true)
         self.getRate(from: fromCurrencySymbol, to: toCurrencySymbol, amount: 1)
     }
+    
+    func setDefaultCurrencies() {
+        let currencyCode  = Locale.current.currencyCode ?? "EGP"
+        let defaultFromCurrency = self.currenciesSubject.value.first(where: { $0.symbol.lowercased() == currencyCode.lowercased()})
+        
+        let toCurrencyCode = currencyCode == "USD" ? "EGP" : "USD"
+        let defaultToCurrency = self.currenciesSubject.value.first(where: { $0.symbol.lowercased() == toCurrencyCode.lowercased()})
+        
+        self.fromCurrencySubject.accept(defaultFromCurrency)
+        self.toCurrencySubject.accept(defaultToCurrency)
+        
+        self.setupRateRequest()
+        
+    }
+    
+    func selectCurrency(currency: Currency, currencyType: CurrencyType) {
+        switch currencyType {
+        case .from:
+            self.fromCurrencySubject.accept(currency)
+        case .to:
+            self.toCurrencySubject.accept(currency)
+        }
+        
+        setupRateRequest()
+       
+    }
+    
+    func setupRateRequest() {
+        if fromCurrencySubject.value != nil && toCurrencySubject.value != nil {
+            let fromCurrencySymbol = self.fromCurrencySubject.value?.symbol ?? ""
+            let toCurrencySymbol = self.toCurrencySubject.value?.symbol ?? ""
+           
+            self.controlLoading(showLoading: true)
+            self.getRate(from: fromCurrencySymbol, to: toCurrencySymbol, amount: 1)
+        }
+    }
+    
+    func saveHistoricalData(date: String) {
+        let historicalData = HistoricalExchangeData(date: date,
+                                                    fromCurrency: self.fromCurrencySubject.value?.symbol ?? "",
+                                                    toCurrency: self.toCurrencySubject.value?.symbol ?? "",
+                                                    rate: self.rateSubject.value ?? 0)
+        UserDefault().setHistoricalData(data: historicalData)
+    }
+    
+    func retryNetworkConnection() {
+        if self.currenciesSubject.value.isEmpty {
+            self.getSymbols()
+        } else if fromCurrencySubject.value != nil && toCurrencySubject.value != nil {
+            let fromCurrencySymbol = self.fromCurrencySubject.value?.symbol ?? ""
+            let toCurrencySymbol = self.toCurrencySubject.value?.symbol ?? ""
+           
+            self.getRate(from: fromCurrencySymbol, to: toCurrencySymbol, amount: 1)
+
+        }
+    }
 }
 
 // MARK: - Handle Network call and response
@@ -194,61 +250,5 @@ extension CurrencyCoverterViewModel {
             self.screenStatusSubject.onNext(.noNetwork)
         }
     }
-    
-    
-    func setDefaultCurrencies() {
-        let currencyCode  = Locale.current.currencyCode ?? "EGP"
-        let defaultFromCurrency = self.currenciesSubject.value.first(where: { $0.symbol.lowercased() == currencyCode.lowercased()})
-        
-        let toCurrencyCode = currencyCode == "USD" ? "EGP" : "USD"
-        let defaultToCurrency = self.currenciesSubject.value.first(where: { $0.symbol.lowercased() == toCurrencyCode.lowercased()})
-        
-        self.fromCurrencySubject.accept(defaultFromCurrency)
-        self.toCurrencySubject.accept(defaultToCurrency)
-        
-        self.setupRateRequest()
-        
-    }
-    
-    func selectCurrency(currency: Currency, currencyType: CurrencyType) {
-        switch currencyType {
-        case .from:
-            self.fromCurrencySubject.accept(currency)
-        case .to:
-            self.toCurrencySubject.accept(currency)
-        }
-        
-        setupRateRequest()
-       
-    }
-    
-    func setupRateRequest() {
-        if fromCurrencySubject.value != nil && toCurrencySubject.value != nil {
-            let fromCurrencySymbol = self.fromCurrencySubject.value?.symbol ?? ""
-            let toCurrencySymbol = self.toCurrencySubject.value?.symbol ?? ""
-           
-            self.controlLoading(showLoading: true)
-            self.getRate(from: fromCurrencySymbol, to: toCurrencySymbol, amount: 1)
-        }
-    }
-    
-    func saveHistoricalData(date: String) {
-        let historicalData = HistoricalExchangeData(date: "2022-11-26",
-                                                    fromCurrency: self.fromCurrencySubject.value?.symbol ?? "",
-                                                    toCurrency: self.toCurrencySubject.value?.symbol ?? "",
-                                                    rate: self.rateSubject.value ?? 0)
-        UserDefault().setHistoricalData(data: historicalData)
-    }
-    
-    func retryNetworkConnection() {
-        if self.currenciesSubject.value.isEmpty {
-            self.getSymbols()
-        } else if fromCurrencySubject.value != nil && toCurrencySubject.value != nil {
-            let fromCurrencySymbol = self.fromCurrencySubject.value?.symbol ?? ""
-            let toCurrencySymbol = self.toCurrencySubject.value?.symbol ?? ""
-           
-            self.getRate(from: fromCurrencySymbol, to: toCurrencySymbol, amount: 1)
 
-        }
-    }
 }

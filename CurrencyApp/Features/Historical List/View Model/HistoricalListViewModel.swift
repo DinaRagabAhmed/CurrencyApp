@@ -26,7 +26,6 @@ class HistoricalListViewModel: BaseViewModel {
     private let dataSubject: BehaviorRelay<[SectionModel<String, HistoricalExchangeData>]> = BehaviorRelay(value: [])
     var dateManager = DateManager()
 
-
     override init() {
         self.input = Input()
         self.output = Output(dataObservable: dataSubject.asObservable())

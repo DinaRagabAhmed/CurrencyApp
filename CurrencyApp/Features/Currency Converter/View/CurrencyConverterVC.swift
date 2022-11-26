@@ -38,7 +38,7 @@ class CurrencyConverterVC: BaseVC {
         self.title = "currency_converter".localized()
         self.detailsBtn.setTitle("details".localized(), for: .selected)
         self.detailsBtn.setTitle("details".localized(), for: .normal)
-        self.maxAmountErrorLabel.text = "max_amount_error".localized()
+        self.maxAmountErrorLabel.text = "\("max_amount_error".localized()) \(Constants.maxAmount.rawValue)"
     }
     
     //Binding
@@ -83,7 +83,7 @@ extension CurrencyConverterVC {
     func bindAmountTextField() {
         amountTextField.rx.text.orEmpty
         .scan("") { [weak self] (previous, new) -> String in
-            if (Double(new.replacedArabicDigitsWithEnglish) ?? 0) > Constants.maxAmount.rawValue {
+            if (Double(new.replacedArabicDigitsWithEnglish) ?? 0) > Double(Constants.maxAmount.rawValue) {
                 self?.maxAmountErrorLabel.isHidden = false
                 return previous ?? "0"
             } else {
@@ -148,6 +148,6 @@ extension CurrencyConverterVC {
     }
 }
 
-private enum Constants: Double {
+private enum Constants: Int {
     case maxAmount = 1000_000_0
 }

@@ -31,8 +31,8 @@ class HistoricalListVC: BaseVC {
     }
     
     func registerCells() {
-        tableView.register(HistoryDataCell.nib,
-                           forCellReuseIdentifier: HistoryDataCell.identifier)
+        tableView.register(SearchHistoryCell.nib,
+                           forCellReuseIdentifier: SearchHistoryCell.identifier)
     }
     
     func setupCellCustomization() {
@@ -62,7 +62,7 @@ class HistoricalListVC: BaseVC {
     }
     
     private func configureHistorySearchCell(with element: HistoricalExchangeData, from table: UITableView, index: IndexPath) -> DisposableTableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: HistoryDataCell.identifier, for: index) as? HistoryDataCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: SearchHistoryCell.identifier, for: index) as? SearchHistoryCell
         cell?.setData(data: element)
         return cell ?? DisposableTableViewCell()
     }

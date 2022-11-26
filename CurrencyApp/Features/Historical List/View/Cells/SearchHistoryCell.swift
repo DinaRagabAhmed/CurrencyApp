@@ -7,8 +7,9 @@
 
 import UIKit
 
-class HistoryDataCell: DisposableTableViewCell {
+class SearchHistoryCell: DisposableTableViewCell {
 
+    @IBOutlet weak var rateLabel: UILabel!
     @IBOutlet weak var dataLabel: UILabel!
     
     override func awakeFromNib() {
@@ -16,7 +17,8 @@ class HistoryDataCell: DisposableTableViewCell {
     }
 
     func setData(data: HistoricalExchangeData) {
-        dataLabel.text = "\("conversion_from".localized()) \(data.fromCurrency) \("to".localized()) \(data.toCurrency) \("with_rate".localized()) \(data.rate.round(to: 2))"
+        self.dataLabel.text = "\(data.fromCurrency) -> \(data.toCurrency)"
+        self.rateLabel.text = "\("rate".localized()): \(data.rate.round(to: 2))"
     }
     
 }

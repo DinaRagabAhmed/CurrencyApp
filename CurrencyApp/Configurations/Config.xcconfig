@@ -1,0 +1,12 @@
+//
+//  Config.xcconfig
+//  CurrencyApp
+//
+//  Created by Dina Ragab on 26/11/2022.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+BASE_URL = api.apilayer.com/fixer/
+API_KEY = X4rOazcLfz2j1wMlWwQ6EsNNhqMkd4Or
