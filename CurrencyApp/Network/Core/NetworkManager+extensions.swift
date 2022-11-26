@@ -16,8 +16,6 @@ extension NetworkManager {
           
             self?.provider.rx.request(MultiTarget(target)).asObservable().subscribe { (response) in
                 
-                print("status code : \(response.statusCode)")
-
                 do {
                     let basicReponse = try JSONDecoder().decode(T.self, from: response.data)
                     
@@ -35,7 +33,6 @@ extension NetworkManager {
                 
             } onError: { error in
                 // Handle error
-                print("error \(error)")
                  observer.onNext(.failure(NetworkError(type: ErrorTypes.unKnown)))
             } onCompleted: {
                 print("onCompleted")

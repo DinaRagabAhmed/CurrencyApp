@@ -186,7 +186,6 @@ extension CurrencyCoverterViewModel {
             self.controlLoading(showLoading: true)
             let target = CurrencyServices.getSymbols
             self.dataManager?.callApi(target: target, type: SymbolsResponse.self).subscribe(onNext: { [weak self] result in
-                print(result)
                 guard let self = self else { return }
                 self.controlLoading(showLoading: false)
                 switch result {
@@ -225,7 +224,6 @@ extension CurrencyCoverterViewModel {
         if Utils.isConnectedToNetwork() {
             let target = CurrencyServices.convertCurrency(from: from, to: to, amount: amount)
             self.dataManager?.callApi(target: target, type: ConversionResponse.self).subscribe(onNext: { [weak self] result in
-                print(result)
                 guard let self = self else { return }
                 self.controlLoading(showLoading: false)
                 switch result {
