@@ -11,6 +11,7 @@ import RxGesture
 
 class CurrencyConverterVC: BaseVC {
 
+    @IBOutlet weak var detailsBtn: UIButton!
     @IBOutlet weak var swapCurrenciesButton: UIButton!
     @IBOutlet weak var noNetworkView: NoNetworkView!
     @IBOutlet weak var conversionResultLabel: UILabel!
@@ -45,6 +46,7 @@ class CurrencyConverterVC: BaseVC {
         self.subscribeToNetworkReconnection()
         self.subscribeToSwapCurrencies()
         self.subscribeToScreenStatus()
+        self.subscribeToShowHistoricalData()
     }
 
 }
@@ -116,6 +118,12 @@ extension CurrencyConverterVC {
     
     func subscribeToSwapCurrencies() {
         swapCurrenciesButton.rx.tap
+        .throttle(RxTimeInterval.milliseconds(300), scheduler: MainScheduler.instance)
+        .bind(to: self.viewModel.input.didSwapCurrencies).disposed(by: disposeBag)
+    }
+    
+    func subscribeToShowHistoricalData() {
+        detailsBtn.rx.tap
         .throttle(RxTimeInterval.milliseconds(300), scheduler: MainScheduler.instance)
         .bind(to: self.viewModel.input.didSwapCurrencies).disposed(by: disposeBag)
     }

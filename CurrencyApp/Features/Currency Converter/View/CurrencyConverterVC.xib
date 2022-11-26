@@ -13,6 +13,7 @@
             <connections>
                 <outlet property="amountTextField" destination="jjH-pA-N8Y" id="r3Q-E4-SQu"/>
                 <outlet property="conversionResultLabel" destination="Fz6-TX-DPK" id="TxA-3y-wg7"/>
+                <outlet property="detailsBtn" destination="jOe-xt-zvD" id="FjB-eZ-no8"/>
                 <outlet property="fromCurrencyLabel" destination="Wnq-ZL-Iew" id="z2T-X0-JRO"/>
                 <outlet property="fromCurrencyView" destination="dfl-66-Mff" id="Tia-mr-Tch"/>
                 <outlet property="noNetworkView" destination="4vd-oi-kjX" id="Ft7-F6-Bx0"/>
@@ -57,7 +58,7 @@
                                     </constraints>
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                            <real key="value" value="15"/>
+                                            <real key="value" value="5"/>
                                         </userDefinedRuntimeAttribute>
                                     </userDefinedRuntimeAttributes>
                                 </view>
@@ -80,7 +81,7 @@
                                     </constraints>
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                            <real key="value" value="15"/>
+                                            <real key="value" value="5"/>
                                         </userDefinedRuntimeAttribute>
                                     </userDefinedRuntimeAttributes>
                                 </view>
@@ -123,10 +124,23 @@
                                     </constraints>
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                            <real key="value" value="15"/>
+                                            <real key="value" value="5"/>
                                         </userDefinedRuntimeAttribute>
                                     </userDefinedRuntimeAttributes>
                                 </view>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jOe-xt-zvD">
+                                    <rect key="frame" x="173" y="320.5" width="68.5" height="31"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <state key="normal" title="Button"/>
+                                    <buttonConfiguration key="configuration" style="plain" title="Details">
+                                        <color key="baseForegroundColor" systemColor="systemTealColor"/>
+                                    </buttonConfiguration>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                            <real key="value" value="5"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                </button>
                             </subviews>
                             <color key="backgroundColor" systemColor="systemTealColor"/>
                             <constraints>
@@ -134,18 +148,21 @@
                                 <constraint firstItem="FSz-Uj-fM2" firstAttribute="leading" secondItem="raL-nJ-z1O" secondAttribute="leading" id="5xd-P0-Qn7"/>
                                 <constraint firstItem="dfl-66-Mff" firstAttribute="top" secondItem="oFT-3R-Cks" secondAttribute="top" constant="130" id="7jO-Sd-kQp"/>
                                 <constraint firstItem="FSz-Uj-fM2" firstAttribute="top" secondItem="raL-nJ-z1O" secondAttribute="bottom" constant="40" id="BA8-OS-3we"/>
+                                <constraint firstItem="jOe-xt-zvD" firstAttribute="centerX" secondItem="oFT-3R-Cks" secondAttribute="centerX" id="Cae-A3-k64"/>
                                 <constraint firstAttribute="trailing" secondItem="raL-nJ-z1O" secondAttribute="trailing" constant="20" id="GCQ-2K-neh"/>
                                 <constraint firstItem="jjH-pA-N8Y" firstAttribute="top" secondItem="dfl-66-Mff" secondAttribute="bottom" constant="40" id="IHv-lS-EaU"/>
+                                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="jOe-xt-zvD" secondAttribute="bottom" constant="10" id="JE6-DM-pTa"/>
+                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="jOe-xt-zvD" secondAttribute="trailing" constant="10" id="Lbg-Jl-Ed4"/>
                                 <constraint firstItem="FSz-Uj-fM2" firstAttribute="height" relation="greaterThanOrEqual" secondItem="jjH-pA-N8Y" secondAttribute="height" id="bvQ-AF-Bhn"/>
                                 <constraint firstItem="jjH-pA-N8Y" firstAttribute="leading" secondItem="dfl-66-Mff" secondAttribute="leading" id="chQ-ie-ecm"/>
                                 <constraint firstItem="dfl-66-Mff" firstAttribute="leading" secondItem="oFT-3R-Cks" secondAttribute="leading" constant="20" id="dCu-sN-VCR"/>
                                 <constraint firstItem="jjH-pA-N8Y" firstAttribute="trailing" secondItem="dfl-66-Mff" secondAttribute="trailing" id="fno-si-Usg"/>
                                 <constraint firstItem="raL-nJ-z1O" firstAttribute="centerY" secondItem="dfl-66-Mff" secondAttribute="centerY" id="gC5-Ay-5eO"/>
-                                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="FSz-Uj-fM2" secondAttribute="bottom" constant="10" id="hUe-1p-QVY"/>
                                 <constraint firstItem="dfl-66-Mff" firstAttribute="width" secondItem="oFT-3R-Cks" secondAttribute="width" multiplier="0.35" id="mMW-Ea-fwn"/>
                                 <constraint firstItem="raL-nJ-z1O" firstAttribute="width" secondItem="dfl-66-Mff" secondAttribute="width" id="pPd-fe-EGn"/>
                                 <constraint firstItem="chM-xl-5f7" firstAttribute="centerY" secondItem="dfl-66-Mff" secondAttribute="centerY" id="rqI-FJ-owv"/>
                                 <constraint firstItem="FSz-Uj-fM2" firstAttribute="trailing" secondItem="raL-nJ-z1O" secondAttribute="trailing" id="xcR-T3-v0h"/>
+                                <constraint firstItem="jOe-xt-zvD" firstAttribute="top" secondItem="FSz-Uj-fM2" secondAttribute="bottom" constant="50" id="xdj-8h-elA"/>
                             </constraints>
                         </view>
                     </subviews>

@@ -35,6 +35,8 @@ class CurrencyConverterCoordinator: BaseCoordinator<Void> {
                 switch redirection {
                 case .currenciesList(let currencies, let currencyType):
                     self.redirectToCurrencyList(viewModel: viewModel, currencies: currencies, currencyType: currencyType)
+                case .historicalDetails:
+                    self.redirectToHistoricalDetails()
                 }
             })
             .disposed(by: bag)
@@ -56,11 +58,16 @@ extension CurrencyConverterCoordinator {
             self?.childCoordinators.removeAll()
         }).disposed(by: currenciesListCoordinator.bag)
     }
+    
+    func redirectToHistoricalDetails() {
+        
+    }
 }
 
 
 enum CurrencyConverterRedirection {
     case currenciesList(currencies: [Currency], currencyType: CurrencyType)
+    case historicalDetails
 }
 
 enum CurrencyType {

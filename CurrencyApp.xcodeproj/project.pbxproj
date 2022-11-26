@@ -54,6 +54,10 @@
 		A7DA4C37293257FD00743651 /* UserDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DA4C36293257FD00743651 /* UserDefault.swift */; };
 		A7DA4C392932592300743651 /* HistoricalExchangeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DA4C382932592300743651 /* HistoricalExchangeData.swift */; };
 		A7DA4C3B29327C0200743651 /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DA4C3A29327C0200743651 /* DateFormatter.swift */; };
+		A7DA4C4129327D7400743651 /* HistoricalListCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DA4C4029327D7400743651 /* HistoricalListCoordinator.swift */; };
+		A7DA4C4329327D8400743651 /* HistoricalListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DA4C4229327D8400743651 /* HistoricalListViewModel.swift */; };
+		A7DA4C4629327D9C00743651 /* HistoricalListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DA4C4429327D9C00743651 /* HistoricalListVC.swift */; };
+		A7DA4C4729327D9C00743651 /* HistoricalListVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = A7DA4C4529327D9C00743651 /* HistoricalListVC.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -108,6 +112,10 @@
 		A7DA4C36293257FD00743651 /* UserDefault.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefault.swift; sourceTree = "<group>"; };
 		A7DA4C382932592300743651 /* HistoricalExchangeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoricalExchangeData.swift; sourceTree = "<group>"; };
 		A7DA4C3A29327C0200743651 /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
+		A7DA4C4029327D7400743651 /* HistoricalListCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoricalListCoordinator.swift; sourceTree = "<group>"; };
+		A7DA4C4229327D8400743651 /* HistoricalListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoricalListViewModel.swift; sourceTree = "<group>"; };
+		A7DA4C4429327D9C00743651 /* HistoricalListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoricalListVC.swift; sourceTree = "<group>"; };
+		A7DA4C4529327D9C00743651 /* HistoricalListVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HistoricalListVC.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -308,6 +316,7 @@
 		A736FE0C29314EAD00E021B5 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				A7DA4C3C29327D4900743651 /* Historical List */,
 				A736FE2329316C3E00E021B5 /* Currencies List */,
 				A736FE0D29314EB900E021B5 /* Currency Converter */,
 			);
@@ -411,6 +420,41 @@
 			path = "No Network View";
 			sourceTree = "<group>";
 		};
+		A7DA4C3C29327D4900743651 /* Historical List */ = {
+			isa = PBXGroup;
+			children = (
+				A7DA4C3F29327D5F00743651 /* View */,
+				A7DA4C3E29327D5800743651 /* View Model */,
+				A7DA4C3D29327D5200743651 /* Coordinator */,
+			);
+			path = "Historical List";
+			sourceTree = "<group>";
+		};
+		A7DA4C3D29327D5200743651 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				A7DA4C4029327D7400743651 /* HistoricalListCoordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		A7DA4C3E29327D5800743651 /* View Model */ = {
+			isa = PBXGroup;
+			children = (
+				A7DA4C4229327D8400743651 /* HistoricalListViewModel.swift */,
+			);
+			path = "View Model";
+			sourceTree = "<group>";
+		};
+		A7DA4C3F29327D5F00743651 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A7DA4C4429327D9C00743651 /* HistoricalListVC.swift */,
+				A7DA4C4529327D9C00743651 /* HistoricalListVC.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -475,6 +519,7 @@
 				A736FE2E29316CC900E021B5 /* CurrenciesListVC.xib in Resources */,
 				A736FDCB2931421A00E021B5 /* LaunchScreen.storyboard in Resources */,
 				A736FE1429314EF000E021B5 /* CurrencyConverterVC.xib in Resources */,
+				A7DA4C4729327D9C00743651 /* HistoricalListVC.xib in Resources */,
 				A736FDF5293146C200E021B5 /* Localizable.strings in Resources */,
 				A736FE392931741900E021B5 /* CurrencyCell.xib in Resources */,
 				A736FDC82931421A00E021B5 /* Assets.xcassets in Resources */,
@@ -536,6 +581,7 @@
 				A736FDEB2931456C00E021B5 /* Routing.swift in Sources */,
 				A736FE1829314F1700E021B5 /* CurrencyConverterCoordinator.swift in Sources */,
 				A736FDDB293143BC00E021B5 /* BaseView.swift in Sources */,
+				A7DA4C4629327D9C00743651 /* HistoricalListVC.swift in Sources */,
 				A736FE322931716C00E021B5 /* FittedSheetCustomization.swift in Sources */,
 				A736FDDF293143ED00E021B5 /* BaseViewModel.swift in Sources */,
 				A736FDFA293146EA00E021B5 /* String+extensions.swift in Sources */,
@@ -545,11 +591,13 @@
 				A736FE3D2931803A00E021B5 /* ConversionResponse.swift in Sources */,
 				A736FE222931609900E021B5 /* Currency.swift in Sources */,
 				A7DA4C392932592300743651 /* HistoricalExchangeData.swift in Sources */,
+				A7DA4C4329327D8400743651 /* HistoricalListViewModel.swift in Sources */,
 				A736FE1E2931588900E021B5 /* CurrencyServices.swift in Sources */,
 				A736FE3029316CF700E021B5 /* CurrenciesListCoordinator.swift in Sources */,
 				A736FE072931493600E021B5 /* DataSource.swift in Sources */,
 				A736FDE22931444000E021B5 /* Coordinator.swift in Sources */,
 				A736FE4129322DCF00E021B5 /* NoNetworkView.swift in Sources */,
+				A7DA4C4129327D7400743651 /* HistoricalListCoordinator.swift in Sources */,
 				A736FE382931741900E021B5 /* CurrencyCell.swift in Sources */,
 				A736FDE62931449E00E021B5 /* AppCoordinator.swift in Sources */,
 				A736FE092931495000E021B5 /* DataManager.swift in Sources */,

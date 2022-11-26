@@ -15,6 +15,7 @@ class CurrencyCoverterViewModel: BaseViewModel {
         let didSelectCurrencyType: AnyObserver<CurrencyType>
         let amount: AnyObserver<String>
         let didSwapCurrencies: AnyObserver<Void>
+        let didTapDetails: AnyObserver<Void>
     }
     
     struct Output {
@@ -39,6 +40,7 @@ class CurrencyCoverterViewModel: BaseViewModel {
     private let rateSubject: BehaviorRelay<Double?> = BehaviorRelay(value: nil)
     private let screenStatusSubject = PublishSubject<ScreenStatus>()
     private let swapCurrenciesSubject = PublishSubject<Void>()
+    private let detailsSubject = PublishSubject<Void>()
 
     var dataManager: DataManager?
     
@@ -46,7 +48,8 @@ class CurrencyCoverterViewModel: BaseViewModel {
         self.dataManager = dataManager
         self.input = Input(didSelectCurrencyType: selectedCurrencyTypeSubject.asObserver(),
                            amount: amountSubject.asObserver(),
-                           didSwapCurrencies: swapCurrenciesSubject.asObserver())
+                           didSwapCurrencies: swapCurrenciesSubject.asObserver(),
+                           didTapDetails: detailsSubject.asObserver())
         self.output = Output(fromCurrencyObservable: fromCurrencySubject.asObservable(),
                              toCurrencyObservable: toCurrencySubject.asObservable(),
                              conversionResultObservable: conversionResultSubject.asObservable(), currenciesObservable: currenciesSubject.asObservable(),
@@ -57,6 +60,7 @@ class CurrencyCoverterViewModel: BaseViewModel {
         subscribeToCurrencyTypeSelection()
         subscribeToAmountChanges()
         subscribeToSwapCurrencies()
+        subscribeToHistoricalDetails()
     }
 }
 
@@ -86,6 +90,17 @@ extension CurrencyCoverterViewModel {
            }.disposed(by: disposeBag)
     }
     
+    func subscribeToHistoricalDetails() {
+        detailsSubject.asObservable()
+           .subscribe { [weak self] _ in
+               self?.screenRedirectionSubject.onNext(.historicalDetails)
+           }.disposed(by: disposeBag)
+    }
+}
+
+// MARK: - Calculations and business logic
+extension CurrencyCoverterViewModel {
+    
     func calculateResult(amount: Double, rate: Double) {
         let result = amount * rate
         conversionResultSubject.accept(result.round(to: 2))
@@ -104,8 +119,8 @@ extension CurrencyCoverterViewModel {
         self.controlLoading(showLoading: true)
         self.getRate(from: fromCurrencySymbol, to: toCurrencySymbol, amount: 1)
     }
- 
 }
+
 // MARK: - Handle Network call and response
 extension CurrencyCoverterViewModel {
     
